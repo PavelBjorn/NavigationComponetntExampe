@@ -1,4 +1,4 @@
-package com.room.pavelfedor.navigationcomponetntexampe
+package com.room.pavelfedor.navigationcomponetntexampe.navigation
 
 import android.os.Bundle
 

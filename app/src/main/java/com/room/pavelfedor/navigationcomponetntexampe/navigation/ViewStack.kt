@@ -1,7 +1,8 @@
-package com.room.pavelfedor.navigationcomponetntexampe
+package com.room.pavelfedor.navigationcomponetntexampe.navigation
 
 import android.os.Bundle
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ViewStack {
 
@@ -21,4 +22,11 @@ class ViewStack {
     }
 
     fun isEmpty() = stack.isEmpty()
+
+    fun saveStak() = Bundle().apply { putParcelableArrayList("stack", ArrayList(stack.map { it }.toList())) }
+
+    fun restoreStack(bundle: Bundle) = stack.apply {
+        clear()
+        addAll(bundle.getParcelableArrayList("stack"))
+    }
 }

@@ -1,4 +1,4 @@
-package com.room.pavelfedor.navigationcomponetntexampe
+package com.room.pavelfedor.navigationcomponetntexampe.navigation
 
 import android.os.Bundle
 import android.os.Parcel
@@ -10,7 +10,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 
 @Navigator.Name("view")
-class ViewNavigator(private val container: ViewGroup, private val stack: ViewStack) : Navigator<ViewDestination>() {
+class ViewNavigator(private val container: ViewNavHost, private val stack: ViewStack) : Navigator<ViewDestination>() {
 
     override fun navigate(destination: ViewDestination, args: Bundle?, navOptions: NavOptions?) {
         replaceView(container, ViewState(
