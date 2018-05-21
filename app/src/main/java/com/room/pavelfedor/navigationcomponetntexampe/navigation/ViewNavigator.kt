@@ -21,7 +21,7 @@ class ViewNavigator(private val container: ViewNavHost, private val stack: ViewS
 
     override fun createDestination() = ViewDestination(this)
 
-    override fun popBackStack() = stack.get()?.run {
+    override fun popBackStack() = stack.popBack()?.run {
         replaceView(container, this)
         true
     } ?: false

@@ -16,14 +16,14 @@ class ViewStack {
         stack.peek()?.putArgs(args)
     }
 
-    fun get(): ViewNavigator.ViewState? = stack.run {
+    fun popBack(): ViewNavigator.ViewState? = stack.run {
         poll()
         peek()
     }
 
     fun isEmpty() = stack.isEmpty()
 
-    fun saveStak() = Bundle().apply { putParcelableArrayList("stack", ArrayList(stack.map { it }.toList())) }
+    fun saveStack() = Bundle().apply { putParcelableArrayList("stack", ArrayList(stack.map { it }.toList())) }
 
     fun restoreStack(bundle: Bundle) = stack.apply {
         clear()

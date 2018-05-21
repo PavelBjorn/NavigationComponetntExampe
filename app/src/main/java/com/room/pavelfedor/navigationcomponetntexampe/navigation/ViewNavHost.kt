@@ -1,6 +1,7 @@
 package com.room.pavelfedor.navigationcomponetntexampe.navigation
 
 import android.content.Context
+import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.widget.FrameLayout
@@ -22,11 +23,19 @@ class ViewNavHost : FrameLayout, NavHost {
 
     init {
         navController = NavController(context)
+        navController?.saveState()
         navController?.navigatorProvider?.addNavigator(ViewNavigator(this, stack))
     }
 
     override fun onSaveInstanceState(): Parcelable {
-        return  SavedState(super.onSaveInstanceState(),)
+        return SavedState(super.onSaveInstanceState(), stack)
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        (state as? SavedState)?.apply {
+            super.onRestoreInstanceState(this.superState)
+            stack.restoreStack(this.stackState)
+        }
     }
 
     override fun getNavController(): NavController {
@@ -35,19 +44,22 @@ class ViewNavHost : FrameLayout, NavHost {
 
     class SavedState : View.BaseSavedState {
         var state: Int = 0
+        var stackState: Bundle = Bundle().apply { putParcelableArrayList("stack", ArrayList()) }
+        private set
 
-        
-
-        constructor(superState: Parcelable, stackSaved: ViewStack) : super(superState)
+        constructor(superState: Parcelable, stackSaved: ViewStack) : super(superState){
+            stackState = stackSaved.saveStack()
+        }
 
         private constructor(`in`: Parcel) : super(`in`) {
             state = `in`.readInt()
+            stackState = `in`.readBundle()
         }
 
         override fun writeToParcel(out: Parcel, flags: Int) {
             super.writeToParcel(out, flags)
             out.writeInt(state)
-            out.writeBundle(stack.sa)
+            out.writeBundle(stackState)
         }
 
         companion object CREATOR : Parcelable.Creator<SavedState> {
@@ -61,4 +73,4 @@ class ViewNavHost : FrameLayout, NavHost {
         }
     }
 }
-}
+
