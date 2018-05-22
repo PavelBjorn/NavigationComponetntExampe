@@ -31,7 +31,7 @@ class ViewNavigator(private val container: ViewNavHost, private var stack: ViewS
 
     private fun replaceView(container: ViewGroup, view: ViewState) {
         container.getChildAt(0).apply {
-            if (view != stack.peeck()) {
+            if (view != stack.peek()) {
                 (this as? BaseView)?.apply {
                     stack.updateState((this as? BaseView)?.getArgs() ?: Bundle())
                 }
@@ -45,7 +45,7 @@ class ViewNavigator(private val container: ViewNavHost, private var stack: ViewS
 
     fun restoreState(stack: ViewStack, destination: NavDestination) {
         this.stack = stack
-        replaceView(container, stack.peeck() ?: return)
+        replaceView(container, stack.peek() ?: return)
         dispatchOnNavigatorNavigated(destination.id, BACK_STACK_UNCHANGED)
     }
 
