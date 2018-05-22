@@ -3,5 +3,12 @@
 
     <declare-styleable name="ViewNavigator">
         <attr name="layout" format="reference" />
+        <attr name="nav_graph" format="reference" />
     </declare-styleable>
+
+
+    <declare-styleable name="ViewNavHost">
+        <attr name="navigation_graph" format="reference" />
+    </declare-styleable>
+
 </resources>

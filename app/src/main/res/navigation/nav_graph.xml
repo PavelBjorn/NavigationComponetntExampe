@@ -4,28 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@+id/firstFragment">
 
-    <fragment
+    <view
         android:id="@+id/firstFragment"
-        android:name="com.room.pavelfedor.navigationcomponetntexampe.FirstFragment"
         android:label="FirstFragment"
-        tools:layout="@layout/firts_fragment">
+        app:layout="@layout/first_fragment">
 
         <action
             android:id="@+id/actionToSecondFragment"
             app:destination="@+id/secondFragment" />
 
-    </fragment>
+    </view>
 
-    <fragment
+    <view
         android:id="@+id/secondFragment"
-        android:name="com.room.pavelfedor.navigationcomponetntexampe.SecondFragment"
         android:label="SecondFragmen"
-        android:layout="@layout/second_fragment">
+        app:layout="@layout/second_fragment">
 
         <action
             android:id="@+id/actionToFirstFragment"
             app:destination="@+id/firstFragment" />
 
-    </fragment>
+    </view>
 
 </navigation>

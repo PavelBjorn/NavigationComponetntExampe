@@ -16,6 +16,8 @@ class ViewStack {
         stack.peek()?.putArgs(args)
     }
 
+    fun peeck(): ViewNavigator.ViewState? = stack.peek()
+
     fun popBack(): ViewNavigator.ViewState? = stack.run {
         poll()
         peek()
