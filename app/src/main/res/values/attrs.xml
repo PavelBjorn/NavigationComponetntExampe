@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="ViewNavigator">
+    <declare-styleable name="ScreenNavigator">
         <attr name="layout" format="reference" />
         <attr name="nav_graph" format="reference" />
     </declare-styleable>
 
 
-    <declare-styleable name="ViewNavHost">
+    <declare-styleable name="ScreenNavHost">
         <attr name="navigation_graph" format="reference" />
     </declare-styleable>
 

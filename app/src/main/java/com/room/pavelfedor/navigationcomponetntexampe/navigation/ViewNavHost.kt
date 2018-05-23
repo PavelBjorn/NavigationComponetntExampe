@@ -29,8 +29,8 @@ class ViewNavHost : FrameLayout, NavHost {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
     private fun initAttrs(context: Context?, attrs: AttributeSet?) {
-        val typedArray = context?.resources?.obtainAttributes(attrs, R.styleable.ViewNavHost)
-        val graph = typedArray?.getResourceId(R.styleable.ViewNavHost_navigation_graph, -1) ?: -1
+        val typedArray = context?.resources?.obtainAttributes(attrs, R.styleable.ScreenNavHost)
+        val graph = typedArray?.getResourceId(R.styleable.ScreenNavHost_navigation_graph, -1) ?: -1
         typedArray?.recycle()
         navController = NavController(this.context)
         navController?.saveState()

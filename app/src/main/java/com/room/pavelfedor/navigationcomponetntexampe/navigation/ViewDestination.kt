@@ -16,8 +16,8 @@ class ViewDestination(navigator: Navigator<out NavDestination>) : NavDestination
 
     override fun onInflate(context: Context, attrs: AttributeSet) {
         super.onInflate(context, attrs)
-        context.resources.obtainAttributes(attrs, R.styleable.ViewNavigator).apply {
-            layoutResId = getResourceId(R.styleable.ViewNavigator_layout, -1)
+        context.resources.obtainAttributes(attrs, R.styleable.ScreenNavigator).apply {
+            layoutResId = getResourceId(R.styleable.ScreenNavigator_layout, -1)
             recycle()
         }
     }
