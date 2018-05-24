@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@+id/firstFragment">
 
-    <view
+    <screen
         android:id="@+id/firstFragment"
         android:label="FirstFragment"
         app:layout="@layout/first_fragment">
@@ -13,9 +13,9 @@
             android:id="@+id/actionToSecondFragment"
             app:destination="@+id/secondFragment" />
 
-    </view>
+    </screen>
 
-    <view
+    <screen
         android:id="@+id/secondFragment"
         android:label="SecondFragmen"
         app:layout="@layout/second_fragment">
@@ -24,6 +24,6 @@
             android:id="@+id/actionToFirstFragment"
             app:destination="@+id/firstFragment" />
 
-    </view>
+    </screen>
 
 </navigation>

@@ -3,24 +3,24 @@ package com.room.pavelfedor.navigationcomponetntexampe.app.base.navigation
 import android.os.Bundle
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
-import com.room.pavelfedor.navigationcomponetntexampe.app.base.contract.BaseScreen
+import com.room.pavelfedor.navigationcomponetntexampe.app.base.contract.Screen
 
 class ScreenNavigator(val navHost: ScreenNavHost) : Navigator<ScreenDestination>() {
 
     private val stack: ScreenStack = ScreenStack()
 
     override fun navigate(destination: ScreenDestination, args: Bundle?, navOptions: NavOptions?) {
+        navigate(Screen.State.from(destination, args ?: Bundle()))
+    }
 
-        BaseScreen.State(
-                destinationId = destination.id,
-                layoutResId = destination.layoutResId,
-                args = args ?: Bundle()
-        ).apply {
-            if (this != stack.peek()) {
-                stack.updateScreenState(navHost.getScreenState() ?: return)
-                stack.put(this)
-            }
+    private fun navigate(state: Screen.State) {
+
+        if (state != stack.peek()) {
+            navHost.getScreenState()?.apply { stack.updateScreenState(this) }
+            stack.put(state)
         }
+
+        navHost.setScreen(Screen.newInstanse(navHost, state))
     }
 
     override fun popBackStack(): Boolean {

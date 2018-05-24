@@ -1,25 +1,25 @@
 package com.room.pavelfedor.navigationcomponetntexampe.app.base.navigation
 
 import android.os.Bundle
-import com.room.pavelfedor.navigationcomponetntexampe.app.base.contract.BaseScreen
+import com.room.pavelfedor.navigationcomponetntexampe.app.base.contract.Screen
 import java.util.*
 import kotlin.collections.ArrayList
 
 class ScreenStack {
 
-    private val stack: LinkedList<BaseScreen.State> = LinkedList()
+    private val stack: LinkedList<Screen.State> = LinkedList()
 
-    fun put(screen: BaseScreen.State) {
+    fun put(screen: Screen.State) {
         stack.push(screen)
     }
 
-    fun updateScreenState(state: BaseScreen.State) {
+    fun updateScreenState(state: Screen.State) {
         stack.peek()?.args = state.args
     }
 
-    fun peek(): BaseScreen.State? = stack.peek()
+    fun peek(): Screen.State? = stack.peek()
 
-    fun popBack(): BaseScreen.State? = stack.run {
+    fun popBack(): Screen.State? = stack.run {
         poll()
         peek()
     }

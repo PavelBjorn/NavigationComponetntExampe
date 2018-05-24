@@ -9,6 +9,7 @@
 
     <declare-styleable name="ScreenNavHost">
         <attr name="navigation_graph" format="reference" />
+        <attr name="diModuleName" format="string" />
     </declare-styleable>
 
 </resources>
