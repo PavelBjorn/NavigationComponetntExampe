@@ -7,7 +7,7 @@
     <screen
         android:id="@+id/firstFragment"
         android:label="FirstFragment"
-        app:layout="@layout/first_fragment">
+        app:screenClassName="@string/firstScreen">
 
         <action
             android:id="@+id/actionToSecondFragment"
@@ -18,7 +18,9 @@
     <screen
         android:id="@+id/secondFragment"
         android:label="SecondFragmen"
-        app:layout="@layout/second_fragment">
+        app:layout="@layout/second_fragment"
+        app:screenClassName="@string/secondScreen"
+        >
 
         <action
             android:id="@+id/actionToFirstFragment"

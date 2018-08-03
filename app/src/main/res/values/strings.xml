@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NavigationComponetntExampe</string>
+    <string name="firstScreen">com.room.pavelfedor.navigationcomponetntexampe.app.launch.authorized.main.FirsScreen</string>
+    <string name="secondScreen">com.room.pavelfedor.navigationcomponetntexampe.app.launch.authorized.main.SecondScreen</string>
 </resources>

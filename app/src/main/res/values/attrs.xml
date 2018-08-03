@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <declare-styleable name="ScreenNavigator">
-        <attr name="layout" format="reference" />
-        <attr name="nav_graph" format="reference" />
+    <declare-styleable name="ScreenDestination">
+        <attr name="screenClassName" format="string" />
     </declare-styleable>
 
-
-    <declare-styleable name="ScreenNavHost">
-        <attr name="navigation_graph" format="reference" />
-        <attr name="diModuleName" format="string" />
+    <declare-styleable name="ScreenNavHostLayout">
+        <attr name="graph" format="reference" />
     </declare-styleable>
-
 </resources>
